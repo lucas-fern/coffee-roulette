@@ -1,0 +1,188 @@
+body {
+    background-color: #271300;
+    color: #e0d6cc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f8f5f1;
+}
+
+.muted {
+    color: #f8f5f1;
+}
+
+.panel {
+    background: #9c6f44;
+    border: 1px solid #563517;
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-decoration: underline;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.error {
+    border-left: 4px solid #b00020;
+    background: #fde7ea;
+    color: #5a1a1a;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    display: none;
+}
+
+button {
+    background-color: #563517;
+    color: #f8f5f1;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+button.secondary {
+    background-color: transparent;
+    color: #563517;
+    border: 2px solid #563517;
+}
+
+button:hover {
+    background-color: #724e2c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: #9c6f44;
+    border-radius: 10px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+thead th {
+    background-color: #563517;
+    color: #f8f5f1;
+    padding: 0.5rem;
+    text-align: left;
+    width: 50%;
+}
+
+tbody tr {
+    background-color: #724e2c;
+}
+
+tbody tr:hover {
+    background-color: #563517;
+}
+
+tbody td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #6f4827;
+    color: #f8f5f1;
+    width: 50%;
+}
+
+textarea,
+input {
+    background-color: #563517;
+    color: #f8f5f1;
+    border: 1px solid #9c6f44;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+button {
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a.secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Unified secondary style for both <button class="secondary"> and <a class="secondary"> */
+.secondary,
+a.secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #563517;
+    border: 2px solid #563517;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 0.5rem;
+    text-decoration: none;
+}
+
+/* Hover/focus states match the secondary button behavior */
+.secondary:hover,
+a.secondary:hover,
+.secondary:focus-visible,
+a.secondary:focus-visible {
+    background-color: #563517;
+    color: #f8f5f1;
+}
+
+small.muted {
+    color: #d1c4b2;
+    font-style: italic;
+    margin-top: 1rem;
+    display: block;
+}
+
+.inline-code {
+    background-color: #563517;
+    color: #f8f5f1;
+    padding: 0.1rem 0.4rem;
+    line-height: 1.5;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}

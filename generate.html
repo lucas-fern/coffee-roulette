@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coffee Roulette - Generate</title>
+    <!-- Minimal, responsive UI framework -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./favicon.ico" sizes="any">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <main class="container">
+        <header style="margin: 1.25rem 0 1rem 0; display: flex; align-items: flex-start; gap: 1rem;">
+            <img src="coffee.gif" alt="Coffee Cup" style="width: 100px; height: auto;">
+            <div>
+                <h1>Coffee Roulette</h1>
+                <p class="muted">Paste your people, set a group size, and generate balanced coffee-chat groups.</p>
+            </div>
+        </header>
+
+        <div class="grid-2">
+            <!-- Left: Instructions + Inputs -->
+            <section class="panel sticky-top" aria-label="controls">
+                <h2 style="margin-top: 0;">Instructions</h2>
+                <ol>
+                    <li>Prepare a CSV or TSV <em>without a header</em> with exactly two columns: <span
+                            class="inline-code">Name</span>, <span class="inline-code">Role</span>.</li>
+                    <li>Paste it into the box below.</li>
+                    <li>Enter your desired <strong>Group Size</strong>.</li>
+                    <li>Click <strong>Generate</strong> to create balanced groups by role. Everyone is assigned and
+                        group sizes/role distribution is as even as possible.</li>
+                </ol>
+
+                <details>
+                    <summary>Example input</summary>
+                    <pre style="margin-top: .5rem">Mark, Manager<br>Gemma, Wellness Counsellor<br>Helena, Employee<br>Irving, Employee
+                        </pre>
+                </details>
+
+                <form id="controls" onsubmit="return false;" style="margin-top: 1rem;">
+                    <label for="csvInput">Roster (CSV or TSV, no header)</label>
+                    <textarea id="csvInput" rows="12" placeholder="Mark, Manager
+Gemma, Wellness Counsellor
+Helena, Employee
+Irving, Employee
+..." required></textarea>
+
+                    <div class="grid" style="--pico-grid-gap: .75rem;">
+                        <div>
+                            <label for="groupSize">Group Size</label>
+                            <input id="groupSize" type="number" min="2" step="1" value="4" required />
+                        </div>
+                        <div style="display:flex; align-items:flex-end; gap:.5rem;">
+                            <button id="generateBtn" type="button">Generate</button>
+                            <button id="clearBtn" type="button" class="secondary" title="Clear inputs">Clear</button>
+                        </div>
+                    </div>
+
+                    <div id="errorBox" class="error" role="alert"></div>
+                    <small class="muted" style="font-style: italic;">Your data never leaves this page; all processing
+                        happens in your browser.</small>
+                </form>
+            </section>
+
+            <!-- Right: Results -->
+            <section class="panel right-panel" aria-label="results">
+                <div style="display:flex; justify-content: space-between; align-items: center; gap: .75rem;">
+                    <h2 style="margin: 0;">Groups</h2>
+                    <a id="downloadCsv" href="#" download="coffee_roulette_groups.csv" class="secondary" role="button"
+                        style="display:none;">Download CSV</a>
+                </div>
+                <div id="results" style="margin-top: .75rem;"></div>
+            </section>
+        </div>
+    </main>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>
